@@ -10,7 +10,7 @@
                     <div class="panel-body">
                     Your Meals Today
 
-                        <li>{{ $meal->pluck('meal_name','created_at')}}</li>
+                        <li>{{ $meal->pluck('meal_name'),('created_at')[0]}}</li>
 
                 </div>
             </div>

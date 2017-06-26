@@ -9,9 +9,30 @@
 
                 <div class="panel-body">
                     @include('common.errors')
-                    <p>{{$meal->meal_name}}</p>
-                    <p>Food {{$meal->foods()->pluck("food_name")}},Protein {{$meal->foods()->pluck("protein")}},Carbohydrates{{$meal->foods()->pluck("Carbohydrates")}}, Fat {{$meal->foods()->pluck("fat")}}</p>
 
+                    <div class="meal-info">
+                        <h2 class="meal-name">{{ $meal->meal_name }}&nbsp;</h2>
+
+                        <span class = "meal-time">
+                            {{ $meal->foods()->pluck('created_at')[0]->format('Y-m-d') }}
+                        </span>
+                        <br>
+                        <span class="meal-data label label-pill label-primary">
+                           {{ $meal->foods()->pluck("food_name")[0] }} Food
+                         </span>
+
+                        <span class="meal-data label label-pill label-default">
+                            {{ $meal->foods()->pluck("protein")[0] }}g Protein
+                        </span>
+
+                        <span class="meal-data label label-pill label-default">
+                             {{ $meal->foods()->pluck("carbohydrates")[0] }}g Carbohydrates
+                        </span>
+
+                        <span class="meal-data label label-pill label-default">
+                            {{ $meal->foods()->pluck("fat")[0] }}g Fat
+                        </span>
+                    </div>
 
                     Add Food to your Meal
                     <form action="/addmeal/{{ $meal->id }}/foods" method="POST" class="form-horizontal">
@@ -22,7 +43,7 @@
                             <label for="food_name" class="col-sm-3 control-label">Food Name</label>
 
                             <div class="col-sm-6">
-                                <input type="text" name="food_name" id="Food-name" class="form-control">
+                                <input type="text" name="food_name" id="Food_name" class="form-control">
                             </div>
                         </div>
                         <div class="form-group">
