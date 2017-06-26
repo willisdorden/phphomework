@@ -14,23 +14,23 @@
                         <h2 class="meal-name">{{ $meal->meal_name }}&nbsp;</h2>
 
                         <span class = "meal-time">
-                            {{ $meal->foods()->pluck('created_at')[0]->format('Y-m-d') }}
+                            {{ $meal->foods()->pluck('created_at')}}
                         </span>
                         <br>
                         <span class="meal-data label label-pill label-primary">
-                           {{ $meal->foods()->pluck("food_name")[0] }} Food
+                           {{ $meal->foods()->pluck("food_name") }} Food
                          </span>
 
                         <span class="meal-data label label-pill label-default">
-                            {{ $meal->foods()->pluck("protein")[0] }}g Protein
+                            {{ $meal->foods()->pluck("protein") }}g Protein
                         </span>
 
                         <span class="meal-data label label-pill label-default">
-                             {{ $meal->foods()->pluck("carbohydrates")[0] }}g Carbohydrates
+                             {{ $meal->foods()->pluck("carbohydrates") }}g Carbohydrates
                         </span>
 
                         <span class="meal-data label label-pill label-default">
-                            {{ $meal->foods()->pluck("fat")[0] }}g Fat
+                            {{ $meal->foods()->pluck("fat") }}g Fat
                         </span>
                     </div>
 
